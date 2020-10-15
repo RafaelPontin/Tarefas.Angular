@@ -1,0 +1,17 @@
+<div class="container cadastro-container">
+ <div class="form-group">
+    <label for="todofield">Cadastro de Tarefas: </label>
+    <div class="cadastro-input">
+        <input type="text" class="form-control" id="todofield" name="todofield" [(ngModel)]="tarefaNova" required >
+        <button type="submit" class="btn btn-primary" (click) ="CadastraTarefa()"  >Cadastrar</button>
+     </div>
+  </div>
+</div>
+
+<div class="container container-todo" *ngIf="todosList?.length > 0">
+  <div class="form-group form-check" *ngFor="let tafefaNova of todosList">
+      <input type="checkbox" [checked]="tafefaNova.isFeito" class="form-check-input" name="tafefacheck-{{tarefaNova}}" (change)= "CheckTarefa(tafefaNova)">
+      <label class="form-check-label" for="tafefacheck-{{tarefaNova}}">{{tafefaNova.nome}}</label>
+      <button class="btn-sm btn-danger btn-apagar" (click)="ApagarTarefa(tafefaNova)">Apagar</button>
+  </div>
+</div>
